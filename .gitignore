@@ -1,0 +1,15 @@
+# ── Private source material — DO NOT PUBLISH ──────────────
+# This folder holds raw CVs (with your phone number), profile
+# dumps and original photos. GitHub Pages serves every file in
+# the repo publicly, so this stays out of git entirely.
+information/
+
+# ── OS / editor noise ─────────────────────────────────────
+Thumbs.db
+ehthumbs.db
+Desktop.ini
+.DS_Store
+.vscode/
+.idea/
+*.swp
+*~
