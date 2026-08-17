@@ -1,30 +1,44 @@
 # Sakib Ahmed — Personal Website
 
-Personal portfolio site for **Sakib Ahmed**, IoT & AI Systems Engineer.
+Personal site for **Sakib Ahmed**, IoT & AI Systems Engineer.
 
-Hand-built with plain **HTML, CSS and vanilla JavaScript** — no framework, no build step,
-no `npm install`. Push the folder to GitHub, flip Pages on, and it's live.
+It ships as **two views of the same content**:
+
+| | | |
+|---|---|---|
+| **`/`** | `index.html` | A navigable 3D **map** — seven engineering domains, thirteen systems, four chapters and three open questions, drawn as one connected graph you fly through. Three.js / WebGL. |
+| **`/page.html`** | `page.html` | The same material as an ordinary **scrolling page** — semantic, crawlable, and it prints as a clean CV. |
+
+Both link to each other from the header, and both read the same `sa-theme`
+localStorage key, so the light/dark choice follows you between them.
+
+No build step, no `npm install`, no CDN at runtime. Three.js is vendored into the
+repo. Push the folder, flip Pages on, and it's live.
 
 ---
 
 ## Structure
 
 ```
-Personal_Web/
-├── index.html              # the entire site (single page, six sections)
-├── 404.html                # custom not-found page
-├── robots.txt
-├── sitemap.xml
-├── .nojekyll               # tells GitHub Pages to serve files as-is
-├── .gitignore              # keeps information/ out of the public repo
+AHMEDALVI10.github.io/
+├── index.html                  # the MAP (landing view)
+├── page.html                   # the scrolling page (was index.html)
+├── 404.html
+├── robots.txt · sitemap.xml · .nojekyll · .gitignore
 └── assets/
-    ├── css/style.css       # all styles + light/dark themes
-    ├── js/main.js          # all behaviour (~340 lines, no dependencies)
-    └── img/
-        ├── sakib-ahmed.jpg         # hero portrait  (640×1138, 80 KB)
-        ├── sakib-ahmed-square.jpg  # square crop    (520×520, 41 KB)
-        ├── og-image.jpg            # social preview (1200×630, 72 KB)
-        └── favicon.svg             # gradient "S" monogram
+    ├── css/
+    │   ├── style.css           # tokens, themes, and every style the page uses
+    │   └── map.css             # the map's own chrome only (loaded after style.css)
+    ├── js/
+    │   ├── main.js             # page.html behaviour (unchanged, no dependencies)
+    │   ├── vendor/
+    │   │   └── three.module.min.js    # Three.js r169, pinned & committed (687 KB)
+    │   └── map/
+    │       ├── graph.js        # ← THE CONTENT. Nodes, edges, copy, layout.
+    │       ├── world.js        # Three.js scene, camera rig, hit-testing
+    │       ├── ui.js           # labels, detail panel, index, keyboard
+    │       └── boot.js         # entry point, theme init, WebGL fallback
+    └── img/                    # portrait, square crop, og-image, favicon
 ```
 
 `information/` holds the raw source material (CVs, profile notes, original photo).
@@ -33,44 +47,142 @@ in a Pages repo is publicly downloadable.
 
 ---
 
+## Editing the map
+
+**Everything you'd want to change lives in [`assets/js/map/graph.js`](assets/js/map/graph.js).**
+It is the single source of truth: node titles, descriptions, bullet points, stacks,
+notes and which things connect to which. `world.js` just draws it.
+
+### Node types
+
+| Type | Colour | What it means |
+|---|---|---|
+| `core` | white | You. One node, at the centre. |
+| `domain` | cyan | An engineering discipline. Seven hubs. |
+| `project` | violet | Something actually built. |
+| `chapter` | mint | A period of time — job or degree. |
+| `frontier` | amber | An open question you're moving toward, not a finished thing. |
+
+### Adding a project
+
+Append to `NODES`:
+
+```js
+{
+  id: 'my-thing',                       // unique; also the deep-link (/#my-thing)
+  type: 'project',
+  title: 'The Thing',
+  eyebrow: 'Computer Vision · Production',
+  badge: 'Live',                        // optional pill
+  blurb: 'One paragraph.',
+  arch: ['Camera', 'Detect', 'OCR'],    // optional pipeline chain
+  points: ['A specific, quantified result.'],
+  chips: ['Python', 'YOLO'],
+  note: 'Private repository',
+  anchor: 'page.html#work',             // where to read it on the page
+}
+```
+
+Then wire it into `EDGES` — a node with no edges floats unconnected:
+
+```js
+['my-thing', 'vision', 'built'],       // project → domain
+['magnetism', 'my-thing', 'when'],     // chapter → project
+['my-thing', 'anpr', 'lineage'],       // shared lineage with another project
+```
+
+Edge kinds (`spine`, `weave`, `built`, `lineage`, `when`, `time`, `reach`) only
+control colour and brightness — see `EDGE_KINDS`.
+
+### Positions are grown, not authored
+
+There are no hand-placed coordinates. `layout()` seeds nodes into per-type shells
+and runs ~220 iterations of spring + repulsion relaxation from a **fixed random
+seed**, so the arrangement looks organic but is byte-identical on every device and
+every reload. Add a node and the graph re-settles around it.
+
+To spread things out or pull them in, edit `SHELL` (radius and vertical band per
+type) and `MIN_GAP`.
+
+### Editing the page
+
+`page.html` is unchanged from the original single-page site — same sections, same
+`main.js`. See the section table further down.
+
+> **Content lives in two places now.** `graph.js` and `page.html` each hold their own
+> copy of the project text. If you change a project description, change it in both,
+> or the two views will disagree.
+
+---
+
+## Controls
+
+| | |
+|---|---|
+| Drag | Orbit |
+| Scroll / pinch | Zoom |
+| Click / tap | Travel to a node |
+| `Tab` | Step through every node in reading order |
+| `↑ ↓ ← →` | Orbit by keyboard |
+| `+` `−` | Zoom by keyboard |
+| `/` | Open and focus the index search |
+| `H` | Back to centre |
+| `Esc` | Close whatever is open |
+
+Deep links work: `https://ahmedalvi10.github.io/#medical` opens straight into that
+node, and selecting a node updates the URL (via `replaceState`, so it doesn't
+pile up history entries).
+
+---
+
+## Accessibility & degradation
+
+This was the main reason the scrolling page was kept rather than replaced.
+
+- **Node labels are real `<button>`s** in the DOM, positioned over their 3D node
+  each frame. So the map is fully keyboard-operable and legible to a screen
+  reader — `Tab` walks the graph, `Enter` travels. A bare `<canvas>` would be a
+  dead end for both.
+- **Selection is announced** through an `aria-live` region.
+- **A text outline** of the whole map sits in `index.html` as visually-hidden but
+  real content, so crawlers and no-JS visitors get the substance. `<noscript>`
+  reveals it and hides the 3D chrome.
+- **No WebGL** → a clear message and a link to `page.html`, rather than a black
+  rectangle. Detected before Three.js is even imported.
+- **`prefers-reduced-motion`** is honoured throughout: pulses off, no breathing,
+  no auto-spin, no camera easing (focus jumps instantly). The map stays fully
+  usable — nothing is disabled, only the motion.
+- **Print** on the map sends you to the page; `page.html` keeps its CV stylesheet.
+
+---
+
 ## Deploying to GitHub Pages
 
-The site is written for a **user site** at `https://ahmedalvi10.github.io`.
+Written for a **user site** at `https://ahmedalvi10.github.io`.
 
-1. Create a public repository named exactly **`AHMEDALVI10.github.io`**.
-2. From `G:\Personal_Web`:
-
-   ```bash
-   git init
-   git add .
-   git commit -m "feat: personal website"
-   git branch -M main
-   git remote add origin https://github.com/AHMEDALVI10/AHMEDALVI10.github.io.git
-   git push -u origin main
-   ```
-
-3. Repo → **Settings → Pages** → Source: **Deploy from a branch**, Branch: `main`, folder `/ (root)`.
-4. Live at `https://ahmedalvi10.github.io` within a minute or two.
+1. Repository named exactly **`AHMEDALVI10.github.io`**, public.
+2. `git push origin main`
+3. Settings → **Pages** → Source: **Deploy from a branch**, Branch `main`, folder `/ (root)`.
 
 ### Using a project repo instead
 
-If you'd rather name the repo something like `portfolio`, the site lives at
-`https://ahmedalvi10.github.io/portfolio/`. In that case:
+If the repo is named something else, the site lives at
+`https://ahmedalvi10.github.io/<repo>/`. In that case:
 
-- change the absolute paths in `404.html` (`/assets/...` → `assets/...`)
-- update the URLs in `sitemap.xml`, `robots.txt` and the `<meta property="og:*">` tags
+- change the absolute paths in `404.html` (`/assets/...` → `assets/...`, `/page.html` → `page.html`)
+- update the URLs in `sitemap.xml`, `robots.txt` and the `og:*` / `canonical` tags in both HTML files
 
 ### Custom domain
 
-Add a file named `CNAME` at the root containing just your domain (e.g. `sakibahmed.dev`),
-point a DNS `CNAME` record at `ahmedalvi10.github.io`, then set the domain under
-Settings → Pages and enable **Enforce HTTPS**.
+Add a `CNAME` file at the root containing just the domain, point a DNS `CNAME`
+record at `ahmedalvi10.github.io`, then set it under Settings → Pages and enable
+**Enforce HTTPS**.
 
 ---
 
 ## Local preview
 
-Open `index.html` directly, or serve it (nicer, avoids any file:// quirks):
+The map uses ES modules, so it needs to be served — `file://` will fail on CORS.
 
 ```bash
 python -m http.server 8000
@@ -79,80 +191,61 @@ python -m http.server 8000
 
 ---
 
-## Editing guide
-
-Everything is in `index.html`, in reading order. The bits you'll actually touch:
+## Editing `page.html`
 
 | What | Where |
 |---|---|
 | Headline, tagline, status badge | `<section class="hero">` |
-| Rotating typewriter phrases | `assets/js/main.js` → `rotator()` → `phrases` array |
+| Rotating typewriter phrases | `assets/js/main.js` → `rotator()` → `phrases` |
 | Bio paragraphs | `<section id="about">` |
 | Stat numbers | `<div class="stats">` → `data-to` attributes |
 | Expertise cards | `<section id="expertise">` |
-| Projects | `<section id="work">` → `<article class="proj">` blocks |
+| Projects | `<section id="work">` → `<article class="proj">` |
 | Skills | `<section id="skills">` |
 | Experience & education | `<section id="journey">` |
-| Colours, spacing, radii | `assets/css/style.css` → `:root` tokens at the top |
+| Colours, spacing, radii | `assets/css/style.css` → `:root` tokens |
 
-### Adding a project
-
-Copy any `<article class="proj">` block. Two attributes matter:
-
-- `data-cat="vision iot backend"` — space-separated filter categories.
-  Valid values: `vision`, `iot`, `backend`, `ai`, `hardware`.
-- `class="proj proj--wide"` — makes the card span two columns (used for flagship work).
-
-### Changing the accent colours
-
-Top of `style.css`:
+Accent colours, top of `style.css`:
 
 ```css
---c1: #00e5ff;   /* cyan   — primary   */
+--c1: #00e5ff;   /* cyan   — primary */
 --c2: #6d5dfc;   /* violet — secondary */
---c3: #00f5a0;   /* mint   — live/active indicators */
+--c3: #00f5a0;   /* mint   — live/active */
+--c4: #ffb020;   /* amber  — frontier (map only) */
 ```
 
-Light-theme equivalents sit just below under `:root[data-theme="light"]`.
+The map reads these as literal hex in `graph.js` → `THEME`, because WebGL needs
+numbers rather than CSS custom properties. **Change an accent and you must change
+it in both places.**
 
 ---
 
 ## TODO — things only you can fill in
 
-- [ ] **Start date at magnetismtech.** The timeline entry currently shows only *Present*.
-      Search `TODO(Sakib)` in `index.html` and change the `<span class="badge badge--live">Present</span>`
-      to something like `<b>2024 — Present</b>`.
-- [ ] **Confirm the job title.** Currently *IoT Engineer — R&D*, based on how you've described
-      the role. Swap it for your official title if it differs.
-- [ ] **LinkedIn.** Not included — no URL on file. To add it, copy the GitHub `<a class="btn btn--ghost">`
-      in the contact section and change the `href`.
-- [ ] **CV download.** Deliberately omitted: your CV PDF has your phone number on it, and a Pages
-      repo is fully public. If you want it, export a phone-free version to `assets/docs/` and link it.
-- [ ] **Verify the numbers.** The stats block claims 39 repositories and 276 contributions
-      (from your GitHub screenshots, Aug 2026). Update `data-to` as they change.
-
----
-
-## Built-in behaviour
-
-- Light/dark theme, persisted to `localStorage`, defaults to your OS preference
-- Scroll progress bar, sticky shrinking nav, scroll-spy section highlighting
-- `IntersectionObserver` reveal animations with staggered delays
-- Typewriter role rotator and animated stat counters
-- Client-side project filtering
-- Interactive node-network canvas in the hero (pauses offscreen and on hidden tabs)
-- Pointer-follow spotlight on the expertise cards
-- Full `prefers-reduced-motion` support — every animation is disabled, nothing breaks
-- Print stylesheet, so the page prints as a clean CV-ish document
-- Semantic HTML, skip link, ARIA on the menu and filters, JSON-LD `Person` schema
+- [ ] **Start date at magnetismtech.** Search `TODO(Sakib)` in `page.html`; the timeline
+      entry shows only *Present*. Also `when: 'Present'` on the `magnetism` node in `graph.js`.
+- [ ] **Confirm the job title.** Currently *IoT Engineer — R&D*.
+- [ ] **Check the contact email.** Both views use `ahmedalvi5418@gmail.com`
+      (in `graph.js`, `page.html` and the JSON-LD). Your git identity is a different
+      address — make sure the public one is the one you want.
+- [ ] **LinkedIn.** Not included — no URL on file.
+- [ ] **CV download.** Deliberately omitted: your CV PDF has your phone number on it
+      and a Pages repo is fully public. Export a phone-free version to `assets/docs/` if you want it.
+- [ ] **Verify the numbers.** The page claims 39 repositories and 276 contributions
+      (Aug 2026). Update `data-to` in `page.html` as they change.
 
 ---
 
 ## Browser support
 
-Chrome/Edge 111+, Firefox 113+, Safari 16.4+ — the floor is `color-mix()`, used for
-translucent surfaces. Older browsers still render the site; a few backgrounds fall back
-to transparent.
+The map needs **WebGL** and **ES modules** — Chrome/Edge 111+, Firefox 113+,
+Safari 16.4+ in practice (the floor is `color-mix()`, used for translucent
+surfaces). Anything older gets the no-WebGL card and the page view, both of which
+work fine.
+
+Three.js is pinned at **r169**. To update it, replace
+`assets/js/vendor/three.module.min.js` and re-check `world.js` — it uses only core
+classes (no addons), so upgrades are usually uneventful.
 
 ---
 

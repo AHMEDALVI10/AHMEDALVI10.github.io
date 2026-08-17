@@ -1,0 +1,875 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Sakib Ahmed — IoT &amp; AI Systems Engineer</title>
+
+<meta name="description" content="Sakib Ahmed — IoT &amp; AI Systems Engineer building intelligent connected systems: embedded firmware, computer vision, edge AI, backend APIs and production deployment." />
+<meta name="author" content="Sakib Ahmed" />
+<meta name="theme-color" content="#080a12" />
+<link rel="canonical" href="https://ahmedalvi10.github.io/page.html" />
+
+<!-- Open Graph / social preview -->
+<meta property="og:type" content="website" />
+<meta property="og:url" content="https://ahmedalvi10.github.io/page.html" />
+<meta property="og:title" content="Sakib Ahmed — IoT &amp; AI Systems Engineer" />
+<meta property="og:description" content="From sensor and firmware to computer vision, backend APIs and production deployment. Embedded systems, edge AI and real-time industrial software." />
+<meta property="og:image" content="https://ahmedalvi10.github.io/assets/img/og-image.jpg" />
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:title" content="Sakib Ahmed — IoT &amp; AI Systems Engineer" />
+<meta name="twitter:description" content="From sensor and firmware to computer vision, backend APIs and production deployment." />
+<meta name="twitter:image" content="https://ahmedalvi10.github.io/assets/img/og-image.jpg" />
+
+<link rel="icon" href="assets/img/favicon.svg" type="image/svg+xml" />
+<link rel="apple-touch-icon" href="assets/img/sakib-ahmed-square.jpg" />
+
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@300;400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+
+<link rel="stylesheet" href="assets/css/style.css" />
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Person",
+  "name": "Sakib Ahmed",
+  "alternateName": "Alvi",
+  "jobTitle": "IoT & AI Systems Engineer",
+  "email": "mailto:ahmedalvi5418@gmail.com",
+  "url": "https://ahmedalvi10.github.io/",
+  "image": "https://ahmedalvi10.github.io/assets/img/sakib-ahmed-square.jpg",
+  "sameAs": ["https://github.com/AHMEDALVI10"],
+  "address": { "@type": "PostalAddress", "addressLocality": "Chattogram", "addressCountry": "Bangladesh" },
+  "alumniOf": { "@type": "CollegeOrUniversity", "name": "Chittagong University of Engineering & Technology" },
+  "knowsAbout": ["Internet of Things","Embedded Systems","Computer Vision","Edge AI","YOLO","OCR","ANPR","Django","FastAPI","ESP32","PCB Design","Docker"]
+}
+</script>
+</head>
+
+<body>
+<a class="skip-link" href="#main">Skip to content</a>
+
+<!-- scroll progress -->
+<div class="scroll-progress" aria-hidden="true"><span id="progressBar"></span></div>
+
+<!-- ambient background -->
+<div class="bg-layer" aria-hidden="true">
+  <div class="bg-grid"></div>
+  <div class="orb orb-1"></div>
+  <div class="orb orb-2"></div>
+  <div class="orb orb-3"></div>
+  <div class="bg-noise"></div>
+</div>
+
+<!-- ══════════════ NAV ══════════════ -->
+<header class="nav" id="nav">
+  <div class="nav__inner">
+    <a class="brand" href="#hero" aria-label="Sakib Ahmed — home">
+      <span class="brand__mark">
+        <svg viewBox="0 0 40 40" aria-hidden="true">
+          <defs>
+            <linearGradient id="bg1" x1="0" y1="0" x2="1" y2="1">
+              <stop offset="0%" stop-color="var(--c1)"/><stop offset="100%" stop-color="var(--c2)"/>
+            </linearGradient>
+          </defs>
+          <rect x="1.5" y="1.5" width="37" height="37" rx="11" fill="none" stroke="url(#bg1)" stroke-width="2"/>
+          <path d="M13 26.5c1.9 1.6 4 2.4 6.4 2.4 3.3 0 5.2-1.5 5.2-3.6 0-2.2-1.7-3-5-3.9-3.9-1-6.3-2.4-6.3-5.8 0-3.3 2.8-5.6 7-5.6 2.3 0 4.3.6 6 1.8" fill="none" stroke="url(#bg1)" stroke-width="2.4" stroke-linecap="round"/>
+        </svg>
+      </span>
+      <span class="brand__text">
+        <b>Sakib Ahmed</b>
+        <i>IoT &amp; AI Systems Engineer</i>
+      </span>
+    </a>
+
+    <nav class="nav__links" id="navLinks" aria-label="Primary">
+      <a href="index.html" class="nav__map">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="2.2"/><circle cx="5" cy="6" r="1.8"/><circle cx="19" cy="7" r="1.8"/><circle cx="6" cy="18" r="1.8"/><circle cx="18" cy="17" r="1.8"/><path d="M10.2 10.7 6.4 7.4M13.9 10.9l3.5-2.4M10.4 13.4 7.3 16.5M13.8 13.3l2.9 2.5"/></svg>
+        Map
+      </a>
+      <a href="#about"     data-nav>About</a>
+      <a href="#expertise" data-nav>Expertise</a>
+      <a href="#work"      data-nav>Work</a>
+      <a href="#skills"    data-nav>Skills</a>
+      <a href="#journey"   data-nav>Journey</a>
+      <a href="#contact"   data-nav class="nav__cta">Contact</a>
+    </nav>
+
+    <div class="nav__tools">
+      <button class="icon-btn" id="themeToggle" aria-label="Switch colour theme" title="Switch theme">
+        <svg class="ico-moon" viewBox="0 0 24 24" aria-hidden="true"><path d="M21 12.8A9 9 0 1 1 11.2 3a7 7 0 0 0 9.8 9.8Z"/></svg>
+        <svg class="ico-sun" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="4.2"/><path d="M12 2v2.6M12 19.4V22M2 12h2.6M19.4 12H22M4.9 4.9l1.9 1.9M17.2 17.2l1.9 1.9M19.1 4.9l-1.9 1.9M6.8 17.2l-1.9 1.9"/></svg>
+      </button>
+      <button class="icon-btn burger" id="burger" aria-label="Open menu" aria-expanded="false" aria-controls="navLinks">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </div>
+</header>
+
+<main id="main">
+
+<!-- ══════════════ HERO ══════════════ -->
+<section class="hero" id="hero">
+  <canvas class="hero__canvas" id="heroCanvas" aria-hidden="true"></canvas>
+
+  <div class="wrap hero__grid">
+    <div class="hero__copy">
+      <p class="status" data-anim="up"><span class="status__dot"></span>At <b>@magnetismtech</b> · open to interesting projects</p>
+
+      <h1 class="hero__name" data-anim="up" data-delay="60">
+        <span class="line">Sakib</span>
+        <span class="line grad">Ahmed</span>
+      </h1>
+
+      <p class="hero__role" data-anim="up" data-delay="120">
+        <span class="hero__role-prefix">I build</span>
+        <span class="rotator" id="rotator" aria-live="polite"><span id="rotatorText"></span><span class="caret"></span></span>
+      </p>
+
+      <p class="hero__lede" data-anim="up" data-delay="180">
+        IoT &amp; AI Systems Engineer from Chattogram, Bangladesh. I take systems the whole way —
+        <b>sensor and PCB</b> → <b>firmware</b> → <b>connectivity</b> → <b>computer vision</b> →
+        <b>backend APIs</b> → <b>dashboard</b> — and get them running in production.
+      </p>
+
+      <ul class="hero__tags" data-anim="up" data-delay="240">
+        <li>Embedded &amp; IoT</li>
+        <li>Computer Vision</li>
+        <li>Edge AI</li>
+        <li>Backend &amp; Real-Time</li>
+        <li>Electronics</li>
+      </ul>
+
+      <div class="hero__actions" data-anim="up" data-delay="300">
+        <a class="btn btn--primary" href="#work">
+          View selected work
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+        </a>
+        <a class="btn btn--ghost" href="#contact">Get in touch</a>
+      </div>
+    </div>
+
+    <div class="hero__portrait" data-anim="fade" data-delay="200">
+      <div class="portrait">
+        <div class="portrait__glow"></div>
+        <div class="portrait__ring"></div>
+        <img src="assets/img/sakib-ahmed.jpg" alt="Portrait of Sakib Ahmed" width="640" height="1138" fetchpriority="high" />
+        <div class="portrait__scan"></div>
+        <div class="portrait__frame"></div>
+
+        <div class="chip chip--1"><span class="chip__dot"></span>ESP32 · firmware</div>
+        <div class="chip chip--2"><span class="chip__dot"></span>YOLO · OCR</div>
+        <div class="chip chip--3"><span class="chip__dot"></span>Django · FastAPI</div>
+      </div>
+    </div>
+  </div>
+
+  <a class="scroll-cue" href="#about" aria-label="Scroll to about">
+    <span class="scroll-cue__track"><span class="scroll-cue__dot"></span></span>
+    <span class="scroll-cue__label">Scroll</span>
+  </a>
+</section>
+
+<!-- ══════════════ MARQUEE ══════════════ -->
+<div class="marquee" aria-hidden="true">
+  <div class="marquee__track">
+    <div class="marquee__set">
+      <span>Python</span><i></i><span>ESP32</span><i></i><span>YOLO</span><i></i><span>Django</span><i></i>
+      <span>FastAPI</span><i></i><span>OpenCV</span><i></i><span>PyTorch</span><i></i><span>Docker</span><i></i>
+      <span>C / C++</span><i></i><span>PostgreSQL</span><i></i><span>React</span><i></i><span>TypeScript</span><i></i>
+      <span>MQTT</span><i></i><span>Redis</span><i></i><span>Linux</span><i></i><span>ONNX</span><i></i>
+      <span>OpenVINO</span><i></i><span>WebSockets</span><i></i><span>KiCad</span><i></i><span>RTSP</span><i></i>
+    </div>
+    <div class="marquee__set">
+      <span>Python</span><i></i><span>ESP32</span><i></i><span>YOLO</span><i></i><span>Django</span><i></i>
+      <span>FastAPI</span><i></i><span>OpenCV</span><i></i><span>PyTorch</span><i></i><span>Docker</span><i></i>
+      <span>C / C++</span><i></i><span>PostgreSQL</span><i></i><span>React</span><i></i><span>TypeScript</span><i></i>
+      <span>MQTT</span><i></i><span>Redis</span><i></i><span>Linux</span><i></i><span>ONNX</span><i></i>
+      <span>OpenVINO</span><i></i><span>WebSockets</span><i></i><span>KiCad</span><i></i><span>RTSP</span><i></i>
+    </div>
+  </div>
+</div>
+
+<!-- ══════════════ ABOUT ══════════════ -->
+<section class="section" id="about">
+  <div class="wrap">
+    <header class="sec-head" data-anim="up">
+      <p class="sec-kicker"><span></span>01 — About</p>
+      <h2 class="sec-title">Engineer across the <em>whole</em> stack — silicon to screen</h2>
+    </header>
+
+    <div class="about">
+      <div class="about__body" data-anim="up" data-delay="80">
+        <p class="lead">
+          I'm an Electronics &amp; Telecommunication Engineering graduate from <b>CUET</b> working in
+          <b>IoT and R&amp;D</b>. Most engineers pick a layer. I've spent my career refusing to.
+        </p>
+        <p>
+          My day-to-day sits where physical hardware meets intelligent software: ESP32 firmware streaming
+          biomedical signals over Wi-Fi, YOLO models reading Bangladeshi licence plates off RTSP camera
+          feeds, industrial weighing scales parsed over RS232, and Django/FastAPI services holding it all
+          together behind Docker on a Linux VPS.
+        </p>
+        <p>
+          That breadth is deliberate. When an ECG stream goes silent, the bug can live in the firmware,
+          the network, the reverse proxy, the API throttle, or the browser — and I'm comfortable tracing
+          it through every one of them. Right now I'm deepening the AI side of that stack: training my own
+          YOLO detectors and OCR models, and expanding into <b>NLP, RAG and agentic systems</b>.
+        </p>
+
+        <div class="pipeline" role="img" aria-label="Engineering pipeline: sensor and PCB, firmware, connectivity, AI inference, backend, dashboard">
+          <div class="pipeline__step"><span class="pipeline__ico">◈</span><b>Sensor &amp; PCB</b><i>KiCad · analog</i></div>
+          <div class="pipeline__step"><span class="pipeline__ico">⛁</span><b>Firmware</b><i>ESP32 · C/C++</i></div>
+          <div class="pipeline__step"><span class="pipeline__ico">≋</span><b>Connectivity</b><i>MQTT · WS · RS232</i></div>
+          <div class="pipeline__step"><span class="pipeline__ico">◎</span><b>Inference</b><i>YOLO · OCR · ONNX</i></div>
+          <div class="pipeline__step"><span class="pipeline__ico">⧉</span><b>Backend</b><i>Django · FastAPI</i></div>
+          <div class="pipeline__step"><span class="pipeline__ico">▤</span><b>Dashboard</b><i>React · TypeScript</i></div>
+        </div>
+      </div>
+
+      <aside class="about__side" data-anim="up" data-delay="160">
+        <div class="card card--facts">
+          <h3 class="card__title">At a glance</h3>
+          <dl class="facts">
+            <div><dt>Based in</dt><dd>Chattogram, Bangladesh</dd></div>
+            <div><dt>Role</dt><dd>IoT Engineer — R&amp;D</dd></div>
+            <div><dt>Education</dt><dd>BSc. ETE, CUET — CGPA 3.71</dd></div>
+            <div><dt>Focus</dt><dd>Embedded · Computer Vision · Edge AI</dd></div>
+            <div><dt>Learning</dt><dd>NLP · RAG · Agentic AI</dd></div>
+            <div><dt>Languages</dt><dd>Bangla · English</dd></div>
+          </dl>
+        </div>
+
+        <div class="stats">
+          <div class="stat"><b class="counter" data-to="39" data-suffix="">0</b><span>GitHub repositories</span></div>
+          <div class="stat"><b class="counter" data-to="276" data-suffix="">0</b><span>Contributions, last year</span></div>
+          <div class="stat"><b class="counter" data-to="13" data-suffix="+">0</b><span>Systems built end-to-end</span></div>
+          <div class="stat"><b class="counter" data-to="6" data-suffix="">0</b><span>Engineering domains</span></div>
+        </div>
+      </aside>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════ EXPERTISE ══════════════ -->
+<section class="section section--alt" id="expertise">
+  <div class="wrap">
+    <header class="sec-head" data-anim="up">
+      <p class="sec-kicker"><span></span>02 — Expertise</p>
+      <h2 class="sec-title">Six domains, one connected system</h2>
+      <p class="sec-sub">Each of these feeds the next. The value isn't any single column — it's that I can carry a problem across all of them.</p>
+    </header>
+
+    <div class="grid-3">
+      <article class="card card--tilt" data-anim="up">
+        <span class="card__num">01</span>
+        <div class="card__ico">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><rect x="7" y="7" width="10" height="10" rx="2"/><path d="M10 3v4M14 3v4M10 17v4M14 17v4M3 10h4M3 14h4M17 10h4M17 14h4"/></svg>
+        </div>
+        <h3>Embedded &amp; IoT</h3>
+        <p>Firmware and device architecture for connected hardware — provisioning, streaming and staying alive on flaky networks.</p>
+        <ul class="taglist">
+          <li>ESP32 / ESP32-S3</li><li>Embedded C/C++</li><li>Arduino</li><li>MQTT · Mosquitto</li>
+          <li>Wi-Fi AP provisioning</li><li>NVS storage</li><li>I2C · SPI · I2S · UART</li><li>OTA &amp; reconnection logic</li>
+        </ul>
+      </article>
+
+      <article class="card card--tilt" data-anim="up" data-delay="60">
+        <span class="card__num">02</span>
+        <div class="card__ico">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M2 12s3.6-6.5 10-6.5S22 12 22 12s-3.6 6.5-10 6.5S2 12 2 12Z"/><circle cx="12" cy="12" r="2.8"/></svg>
+        </div>
+        <h3>Computer Vision &amp; Edge AI</h3>
+        <p>Detection and OCR pipelines that run on real camera feeds, on real hardware, under real latency budgets.</p>
+        <ul class="taglist">
+          <li>YOLOv8 / YOLO11 / YOLO26</li><li>ANPR &amp; LPR</li><li>Bangla OCR</li><li>Dataset engineering · CVAT</li>
+          <li>Model training &amp; eval</li><li>ONNX Runtime</li><li>OpenVINO · TensorRT</li><li>RTSP multi-camera</li>
+        </ul>
+      </article>
+
+      <article class="card card--tilt" data-anim="up" data-delay="120">
+        <span class="card__num">03</span>
+        <div class="card__ico">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><ellipse cx="12" cy="5.5" rx="8" ry="3"/><path d="M4 5.5v13c0 1.7 3.6 3 8 3s8-1.3 8-3v-13M4 12c0 1.7 3.6 3 8 3s8-1.3 8-3"/></svg>
+        </div>
+        <h3>Backend &amp; Real-Time</h3>
+        <p>APIs and streaming layers built for devices, not just browsers — where a dropped frame is a clinical or industrial problem.</p>
+        <ul class="taglist">
+          <li>Python</li><li>Django · DRF</li><li>FastAPI</li><li>WebSockets · SSE</li>
+          <li>REST · JWT</li><li>PostgreSQL · Redis</li><li>Daphne · Uvicorn</li><li>Laravel integration</li>
+        </ul>
+      </article>
+
+      <article class="card card--tilt" data-anim="up" data-delay="60">
+        <span class="card__num">04</span>
+        <div class="card__ico">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><rect x="2.5" y="4" width="19" height="13" rx="2"/><path d="M8 21h8M12 17v4M2.5 9h19"/></svg>
+        </div>
+        <h3>Full-Stack Web</h3>
+        <p>Operator dashboards and product frontends — the surface where all that device data finally becomes useful.</p>
+        <ul class="taglist">
+          <li>React · Vite</li><li>TypeScript</li><li>Next.js</li><li>Tailwind · Bootstrap</li>
+          <li>Live data dashboards</li><li>Flutter</li><li>HTML5 · CSS3</li><li>API integration</li>
+        </ul>
+      </article>
+
+      <article class="card card--tilt" data-anim="up" data-delay="120">
+        <span class="card__num">05</span>
+        <div class="card__ico">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2 3 6.5v7c0 5 3.8 8 9 8.5 5.2-.5 9-3.5 9-8.5v-7L12 2Z"/><path d="m8.6 12 2.4 2.4 4.4-4.6"/></svg>
+        </div>
+        <h3>DevOps &amp; Deployment</h3>
+        <p>Getting it off the laptop and keeping it up — containers, pipelines, proxies and the Linux boxes underneath.</p>
+        <ul class="taglist">
+          <li>Docker · Compose</li><li>GitHub Actions · GHCR</li><li>Linux · AlmaLinux</li><li>Apache reverse proxy</li>
+          <li>SSH · VPS admin</li><li>CI/CD pipelines</li><li>Git &amp; GitHub</li><li>Production debugging</li>
+        </ul>
+      </article>
+
+      <article class="card card--tilt" data-anim="up" data-delay="180">
+        <span class="card__num">06</span>
+        <div class="card__ico">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 17h4l2.5-9L13 20l2.5-7 1.8 4H21"/></svg>
+        </div>
+        <h3>Electronics &amp; RF</h3>
+        <p>The layer most software engineers never touch — circuits, biomedical front-ends and antenna design.</p>
+        <ul class="taglist">
+          <li>PCB design</li><li>Sensor interfacing</li><li>Biomedical electronics</li><li>MIMO &amp; microstrip antennas</li>
+          <li>CST Studio Suite</li><li>MATLAB</li><li>Cadence Virtuoso</li><li>Signal acquisition</li>
+        </ul>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════ WORK ══════════════ -->
+<section class="section" id="work">
+  <div class="wrap">
+    <header class="sec-head" data-anim="up">
+      <p class="sec-kicker"><span></span>03 — Selected work</p>
+      <h2 class="sec-title">Systems I've built end to end</h2>
+      <p class="sec-sub">A mix of production industrial software, medical-device platforms, embedded prototypes and research. Several are proprietary or private repositories — those are marked.</p>
+    </header>
+
+    <div class="filters" data-anim="up" data-delay="60" role="tablist" aria-label="Filter projects">
+      <button class="filter is-active" data-filter="all"      role="tab" aria-selected="true">All</button>
+      <button class="filter" data-filter="vision"   role="tab" aria-selected="false">Computer Vision</button>
+      <button class="filter" data-filter="iot"      role="tab" aria-selected="false">IoT &amp; Embedded</button>
+      <button class="filter" data-filter="backend"  role="tab" aria-selected="false">Backend &amp; Web</button>
+      <button class="filter" data-filter="ai"       role="tab" aria-selected="false">AI &amp; NLP</button>
+      <button class="filter" data-filter="hardware" role="tab" aria-selected="false">Hardware &amp; RF</button>
+    </div>
+
+    <div class="projects" id="projects">
+
+      <!-- FLAGSHIP -->
+      <article class="proj proj--wide" data-cat="vision iot backend" data-anim="up">
+        <div class="proj__head">
+          <div>
+            <p class="proj__eyebrow">Flagship · Production · @magnetismtech</p>
+            <h3 class="proj__title">Industrial ANPR &amp; Gate Monitoring System</h3>
+          </div>
+          <span class="badge badge--live">Live</span>
+        </div>
+        <p class="proj__desc">
+          An end-to-end computer-vision system for shipping &amp; logistics gates. Vehicles are detected and
+          read from live RTSP feeds, plates are recognised through a Bangla OCR pipeline, and the result is
+          tied to an industrial weighing session — all coordinated by a Python backend and an operator
+          dashboard.
+        </p>
+        <div class="proj__arch" aria-label="Architecture">
+          <code>IP Cameras (RTSP)</code><span>→</span><code>YOLO vehicle detect</code><span>→</span>
+          <code>Plate detect</code><span>→</span><code>Character OCR</code><span>→</span>
+          <code>Plate reconstruction</code><span>→</span><code>Backend + DB</code><span>→</span><code>Dashboard</code>
+        </div>
+        <ul class="proj__points">
+          <li>24/7 gate-event cameras with configurable <b>virtual detection line</b> and IN/OUT direction logic</li>
+          <li>Conditional weight-session cameras bound to live scale readings</li>
+          <li>Architected for multi-camera scale — up to <b>28 concurrent RTSP streams</b></li>
+          <li>GPU and CPU inference paths for deployment flexibility on edge hardware</li>
+        </ul>
+        <ul class="chips">
+          <li>Python</li><li>YOLOv8/11/26</li><li>OpenCV</li><li>FastAPI</li><li>RTSP</li><li>Docker</li><li>Linux</li><li>React</li>
+        </ul>
+        <p class="proj__note">Proprietary — built for a live logistics platform</p>
+      </article>
+
+      <!-- Bangla OCR -->
+      <article class="proj" data-cat="vision ai" data-anim="up" data-delay="60">
+        <div class="proj__head">
+          <div>
+            <p class="proj__eyebrow">Computer Vision · Model training</p>
+            <h3 class="proj__title">Bangla Licence Plate OCR</h3>
+          </div>
+        </div>
+        <p class="proj__desc">
+          A character-level OCR pipeline for Bangladeshi licence plates — trained from scratch rather than
+          adapted from an off-the-shelf model, because Bangla script has no usable pretrained detector.
+        </p>
+        <ul class="proj__points">
+          <li><b>4,530</b> source images augmented to <b>33,511</b> training entries (~31% real)</li>
+          <li>102-class Bangla character map with full class-alignment validation</li>
+          <li>Trained on Tesla T4 — YOLO11s, 100 epochs, PyTorch + CUDA 12.8</li>
+          <li>CVAT annotation workflow and dataset QA</li>
+        </ul>
+        <ul class="chips"><li>YOLOv8</li><li>YOLO11</li><li>YOLO26</li><li>Ultralytics</li><li>PyTorch</li><li>CVAT</li></ul>
+        <p class="proj__note">Private repository</p>
+      </article>
+
+      <!-- Container -->
+      <article class="proj" data-cat="vision ai" data-anim="up" data-delay="120">
+        <div class="proj__head">
+          <div>
+            <p class="proj__eyebrow">Computer Vision · Logistics</p>
+            <h3 class="proj__title">Container Number Recognition</h3>
+          </div>
+        </div>
+        <p class="proj__desc">
+          Automated reading of shipping-container identification numbers from yard and gate cameras —
+          a multi-stage detection cascade rather than a single model.
+        </p>
+        <div class="proj__arch">
+          <code>Container</code><span>→</span><code>Number region</code><span>→</span>
+          <code>Characters</code><span>→</span><code>OCR</code><span>→</span><code>ID reconstruction</code>
+        </div>
+        <ul class="proj__points">
+          <li>Dataset of ~<b>99,000</b> images across <b>20 classes</b></li>
+          <li>Reached approximately <b>76% mAP</b> on the detection stage</li>
+          <li>Designed to plug directly into the existing logistics workflow</li>
+        </ul>
+        <ul class="chips"><li>YOLO</li><li>OCR</li><li>Python</li><li>OpenCV</li><li>Edge inference</li></ul>
+        <p class="proj__note">Private repository</p>
+      </article>
+
+      <!-- InTEAM medical -->
+      <article class="proj proj--wide" data-cat="backend iot" data-anim="up">
+        <div class="proj__head">
+          <div>
+            <p class="proj__eyebrow">Healthcare platform · Production</p>
+            <h3 class="proj__title">Medical Device Integration Platform</h3>
+          </div>
+          <span class="badge badge--live">Live</span>
+        </div>
+        <p class="proj__desc">
+          A backend platform connecting ESP32-based medical devices to a clinical EMR in real time. Devices
+          register themselves, open sessions, and stream physiological data that reaches the clinician's
+          browser with sub-second latency.
+        </p>
+        <div class="proj__arch">
+          <code>ESP32 device</code><span>→</span><code>WebSocket / HTTP</code><span>→</span>
+          <code>Django + DRF</code><span>→</span><code>Stream processor</code><span>→</span>
+          <code>SSE</code><span>→</span><code>Browser</code><span>→</span><code>Laravel EMR</code>
+        </div>
+        <ul class="proj__points">
+          <li>Device registry, auto-registration and session lifecycle management</li>
+          <li>WebSocket ingestion via Daphne behind an Apache <code>mod_proxy_wstunnel</code> reverse proxy</li>
+          <li>Server-Sent Events fan-out for live in-browser waveform rendering</li>
+          <li>Dockerised deployment: GitHub Actions → GHCR → Linux VPS, with PostgreSQL and Redis</li>
+          <li>Diagnosed a silent-stream bug down through firmware timing → 240 req/min → a 120 req/min DRF throttle</li>
+        </ul>
+        <ul class="chips"><li>Django</li><li>DRF</li><li>Laravel</li><li>WebSockets</li><li>SSE</li><li>PostgreSQL</li><li>Redis</li><li>Docker</li><li>Apache</li><li>CI/CD</li></ul>
+        <p class="proj__note">Private repository</p>
+      </article>
+
+      <!-- ECG -->
+      <article class="proj" data-cat="iot hardware" data-anim="up" data-delay="60">
+        <div class="proj__head">
+          <div>
+            <p class="proj__eyebrow">Embedded · Biomedical</p>
+            <h3 class="proj__title">ESP32 ECG Acquisition Device</h3>
+          </div>
+        </div>
+        <p class="proj__desc">
+          A connected ECG front-end built on the MAX30003 analog AFE, streaming clinical-grade waveform
+          data off an ESP32 over Wi-Fi.
+        </p>
+        <ul class="proj__points">
+          <li><b>256 Hz</b> continuous sampling with millivolt-calibrated output</li>
+          <li>Custom binary packet protocol — 64 samples per POST, ~4 posts/second</li>
+          <li>First-boot AP-mode provisioning with credentials persisted to NVS</li>
+          <li>Automatic reconnection and heartbeat/keepalive handling</li>
+        </ul>
+        <ul class="chips"><li>ESP32</li><li>MAX30003</li><li>Embedded C++</li><li>SPI</li><li>WebSockets</li><li>Wi-Fi</li></ul>
+        <p class="proj__note">Private repository</p>
+      </article>
+
+      <!-- Stethoscope -->
+      <article class="proj" data-cat="iot hardware" data-anim="up" data-delay="120">
+        <div class="proj__head">
+          <div>
+            <p class="proj__eyebrow">Embedded · Audio DSP</p>
+            <h3 class="proj__title">Digital Stethoscope</h3>
+          </div>
+        </div>
+        <p class="proj__desc">
+          A digital auscultation device capturing heart and lung sounds through an I2S MEMS microphone and
+          streaming them live to a browser for clinician review.
+        </p>
+        <ul class="proj__points">
+          <li>INMP441 I2S microphone at 8 kHz and 44.1 kHz sample rates</li>
+          <li>On-device DSP filtering tuned for the auscultation band</li>
+          <li>Low-latency WebSocket audio streaming into the web platform</li>
+          <li>Auto device-registry integration alongside the ECG hardware</li>
+        </ul>
+        <ul class="chips"><li>ESP32</li><li>INMP441</li><li>I2S</li><li>DSP</li><li>WebSockets</li><li>C++</li></ul>
+        <p class="proj__note">Private repository</p>
+      </article>
+
+      <!-- Scale -->
+      <article class="proj" data-cat="iot backend" data-anim="up" data-delay="60">
+        <div class="proj__head">
+          <div>
+            <p class="proj__eyebrow">Industrial integration</p>
+            <h3 class="proj__title">Industrial Weighbridge Integration</h3>
+          </div>
+        </div>
+        <p class="proj__desc">
+          Bringing a physical weighing scale into an AI logistics platform, so that a truck settling on the
+          weighbridge is what triggers the vision pipeline.
+        </p>
+        <ul class="proj__points">
+          <li>Migrated the fleet from <b>XK3190-D10</b> to <b>Marques BM1000</b> hardware</li>
+          <li>Direct RS232 serial over CH340 USB adapters — 9600 baud, 8N1, request mode</li>
+          <li>Custom frame parser with a reconnection watchdog and maintenance mode</li>
+          <li>Weight-stable events trigger camera capture and plate recognition</li>
+        </ul>
+        <ul class="chips"><li>Python</li><li>RS232</li><li>pySerial</li><li>Industrial hardware</li><li>FastAPI</li></ul>
+        <p class="proj__note">Proprietary</p>
+      </article>
+
+      <!-- Wearable -->
+      <article class="proj" data-cat="iot hardware" data-anim="up" data-delay="120">
+        <div class="proj__head">
+          <div>
+            <p class="proj__eyebrow">Research prototype</p>
+            <h3 class="proj__title">Multi-Sensor Health Wearable</h3>
+          </div>
+        </div>
+        <p class="proj__desc">
+          An ESP32 wearable fusing five biomedical sensors into a single continuous monitoring device —
+          a research prototype, not a clinically validated instrument.
+        </p>
+        <ul class="proj__points">
+          <li>MAX30101 / MAX32664 optical front-end for heart rate and SpO₂</li>
+          <li>MAX30003 ECG, DS18B20 body temperature, MPU6050 motion</li>
+          <li>Accelerometer-based fall detection and respiratory-rate estimation</li>
+          <li>On-device TFT interface via TFT_eSPI with IoT cloud upload</li>
+        </ul>
+        <ul class="chips"><li>ESP32</li><li>Sensor fusion</li><li>MQTT</li><li>TFT_eSPI</li><li>PPG</li><li>Embedded C++</li></ul>
+        <p class="proj__note">Research prototype</p>
+      </article>
+
+      <!-- RAG -->
+      <article class="proj" data-cat="ai backend" data-anim="up" data-delay="60">
+        <div class="proj__head">
+          <div>
+            <p class="proj__eyebrow">NLP · Retrieval</p>
+            <h3 class="proj__title">University Notes RAG Assistant</h3>
+          </div>
+        </div>
+        <p class="proj__desc">
+          A retrieval-augmented question-answering system over academic PDFs, built in plain Python to
+          understand the mechanics rather than hide them behind a framework.
+        </p>
+        <div class="proj__arch">
+          <code>PDF</code><span>→</span><code>Chunking</code><span>→</span><code>Embeddings</code><span>→</span>
+          <code>FAISS</code><span>→</span><code>Retrieval</code><span>→</span><code>LLM</code>
+        </div>
+        <ul class="proj__points">
+          <li>Local <code>all-MiniLM-L6-v2</code> embeddings — no external calls for indexing</li>
+          <li>FAISS vector index tuned for modest local hardware</li>
+          <li>Hosted LLM generation, keeping inference cost off the client machine</li>
+        </ul>
+        <ul class="chips"><li>Python</li><li>Sentence Transformers</li><li>FAISS</li><li>RAG</li><li>Gemini API</li></ul>
+        <p class="proj__note">Learning project</p>
+      </article>
+
+      <!-- Face attendance -->
+      <article class="proj" data-cat="vision" data-anim="up" data-delay="120">
+        <div class="proj__head">
+          <div>
+            <p class="proj__eyebrow">Computer Vision</p>
+            <h3 class="proj__title">Automated Face Attendance System</h3>
+          </div>
+        </div>
+        <p class="proj__desc">
+          Real-time face-recognition attendance — enrolment, live identification from a webcam feed, and
+          automatic attendance logging with duplicate suppression.
+        </p>
+        <ul class="chips"><li>Python</li><li>OpenCV</li><li>Face recognition</li><li>Real-time inference</li></ul>
+        <p class="proj__note">Private repository</p>
+      </article>
+
+      <!-- Ecommerce -->
+      <article class="proj" data-cat="backend" data-anim="up" data-delay="60">
+        <div class="proj__head">
+          <div>
+            <p class="proj__eyebrow">Full-stack</p>
+            <h3 class="proj__title">Django + React E-Commerce Platform</h3>
+          </div>
+        </div>
+        <p class="proj__desc">
+          A complete multi-vendor commerce system — the project where I worked through the full breadth of
+          Django REST Framework rather than a CRUD demo.
+        </p>
+        <ul class="proj__points">
+          <li>JWT auth with a custom user model; vendor and customer roles</li>
+          <li>Products, categories, reviews, wishlist, session and DB-backed carts</li>
+          <li>Checkout, orders, payments and invoice generation</li>
+          <li>Vendor dashboard with product and order management; filtering and price sliders</li>
+        </ul>
+        <ul class="chips"><li>Django</li><li>DRF</li><li>SimpleJWT</li><li>React</li><li>Vite</li><li>TypeScript</li><li>PostgreSQL</li></ul>
+        <p class="proj__note">Private repository</p>
+      </article>
+
+      <!-- OpenCV suite -->
+      <article class="proj" data-cat="vision" data-anim="up" data-delay="120">
+        <div class="proj__head">
+          <div>
+            <p class="proj__eyebrow">Computer Vision · Toolkit</p>
+            <h3 class="proj__title">Real-Time Vision Toolkit</h3>
+          </div>
+        </div>
+        <p class="proj__desc">
+          A series of real-time perception builds covering the classic CV interaction problems — each a
+          standalone working system rather than a notebook.
+        </p>
+        <ul class="proj__points">
+          <li>Hand tracking and a gesture-controlled LED system (vision → hardware)</li>
+          <li>Pose estimation, face mesh and face detection</li>
+          <li>Emotion detection and sign-language recognition</li>
+        </ul>
+        <ul class="chips"><li>Python</li><li>OpenCV</li><li>MediaPipe</li><li>CNNs</li><li>Arduino</li></ul>
+        <p class="proj__note">Private repositories</p>
+      </article>
+
+      <!-- Antenna -->
+      <article class="proj" data-cat="hardware" data-anim="up" data-delay="60">
+        <div class="proj__head">
+          <div>
+            <p class="proj__eyebrow">Undergraduate thesis · RF</p>
+            <h3 class="proj__title">Wrench-Shaped MIMO Antenna for Sub-6 GHz 5G</h3>
+          </div>
+        </div>
+        <p class="proj__desc">
+          My BSc thesis: a novel wrench-shaped MIMO antenna geometry designed for enhanced bandwidth and
+          inter-element isolation in sub-6 GHz 5G bands, simulated in CST Studio Suite.
+        </p>
+        <ul class="proj__points">
+          <li>Full-wave electromagnetic simulation and parametric optimisation</li>
+          <li>Isolation and envelope-correlation analysis across the operating band</li>
+          <li>Companion work: circular microstrip patch array antenna for 2.3 GHz</li>
+        </ul>
+        <ul class="chips"><li>CST Studio Suite</li><li>MIMO</li><li>Microstrip</li><li>RF design</li><li>MATLAB</li></ul>
+        <p class="proj__note">Academic — CUET, 2024</p>
+      </article>
+
+    </div>
+
+    <div class="work-more" data-anim="up">
+      <p>Most of my repositories are private or client-owned. The public profile still shows the shape of the work.</p>
+      <a class="btn btn--ghost" href="https://github.com/AHMEDALVI10" target="_blank" rel="noopener noreferrer">
+        <svg viewBox="0 0 24 24" aria-hidden="true" class="ico-fill"><path d="M12 .5a12 12 0 0 0-3.8 23.4c.6.1.8-.3.8-.6v-2c-3.3.7-4-1.6-4-1.6-.6-1.4-1.4-1.8-1.4-1.8-1.1-.7.1-.7.1-.7 1.2.1 1.9 1.3 1.9 1.3 1.1 1.9 2.9 1.3 3.6 1 .1-.8.4-1.3.8-1.6-2.7-.3-5.5-1.3-5.5-5.9 0-1.3.5-2.4 1.2-3.2-.1-.3-.5-1.5.1-3.2 0 0 1-.3 3.3 1.2a11.5 11.5 0 0 1 6 0c2.3-1.5 3.3-1.2 3.3-1.2.6 1.7.2 2.9.1 3.2.8.8 1.2 1.9 1.2 3.2 0 4.6-2.8 5.6-5.5 5.9.4.4.8 1.1.8 2.2v3.3c0 .3.2.7.8.6A12 12 0 0 0 12 .5Z"/></svg>
+        github.com/AHMEDALVI10
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════ SKILLS ══════════════ -->
+<section class="section section--alt" id="skills">
+  <div class="wrap">
+    <header class="sec-head" data-anim="up">
+      <p class="sec-kicker"><span></span>04 — Toolkit</p>
+      <h2 class="sec-title">What I actually work with</h2>
+      <p class="sec-sub">Grouped by what I reach for, not by how impressive the logo looks.</p>
+    </header>
+
+    <div class="skills">
+      <div class="skillgroup" data-anim="up">
+        <h3><span class="dot"></span>Languages</h3>
+        <ul><li>Python</li><li>C</li><li>C++</li><li>Embedded C/C++</li><li>TypeScript</li><li>JavaScript</li><li>SQL</li><li>Dart</li><li>Bash</li><li>PowerShell</li><li>HTML5</li><li>CSS3</li></ul>
+      </div>
+      <div class="skillgroup" data-anim="up" data-delay="60">
+        <h3><span class="dot"></span>AI &amp; Computer Vision</h3>
+        <ul><li>PyTorch</li><li>Ultralytics</li><li>YOLOv8</li><li>YOLO11</li><li>YOLO26</li><li>OpenCV</li><li>MediaPipe</li><li>OCR</li><li>ANPR / LPR</li><li>ONNX Runtime</li><li>OpenVINO</li><li>TensorRT</li><li>scikit-learn</li><li>NumPy · pandas</li></ul>
+      </div>
+      <div class="skillgroup" data-anim="up" data-delay="120">
+        <h3><span class="dot"></span>NLP &amp; LLM <em>(growing)</em></h3>
+        <ul><li>RAG</li><li>Embeddings</li><li>FAISS</li><li>Sentence Transformers</li><li>Vector search</li><li>pgvector</li><li>Gemini API</li><li>Agentic AI</li></ul>
+      </div>
+      <div class="skillgroup" data-anim="up">
+        <h3><span class="dot"></span>Backend &amp; Data</h3>
+        <ul><li>Django</li><li>Django REST Framework</li><li>FastAPI</li><li>Laravel</li><li>REST APIs</li><li>WebSockets</li><li>Server-Sent Events</li><li>SimpleJWT</li><li>Daphne · Uvicorn</li><li>PostgreSQL</li><li>Redis</li><li>SQLite</li><li>MySQL</li></ul>
+      </div>
+      <div class="skillgroup" data-anim="up" data-delay="60">
+        <h3><span class="dot"></span>Embedded &amp; IoT</h3>
+        <ul><li>ESP32 · ESP32-S3</li><li>Arduino</li><li>MQTT · Mosquitto</li><li>Wi-Fi · AP provisioning</li><li>NVS</li><li>I2C · SPI · I2S · UART</li><li>RS232 · USB serial</li><li>RTSP</li><li>GSM / LTE</li><li>ThingSpeak · Ubidots</li><li>TFT_eSPI</li></ul>
+      </div>
+      <div class="skillgroup" data-anim="up" data-delay="120">
+        <h3><span class="dot"></span>Hardware &amp; Sensors</h3>
+        <ul><li>PCB design</li><li>KiCad · EasyEDA</li><li>MAX30003</li><li>MAX30101 · MAX32664</li><li>INMP441</li><li>MPU6050</li><li>DS18B20</li><li>ADS1115</li><li>CST Studio Suite</li><li>Cadence Virtuoso</li><li>MATLAB</li></ul>
+      </div>
+      <div class="skillgroup" data-anim="up">
+        <h3><span class="dot"></span>Frontend</h3>
+        <ul><li>React</li><li>Vite</li><li>Next.js</li><li>TypeScript</li><li>Tailwind CSS</li><li>Bootstrap</li><li>Flutter</li><li>Real-time dashboards</li></ul>
+      </div>
+      <div class="skillgroup" data-anim="up" data-delay="60">
+        <h3><span class="dot"></span>DevOps &amp; Tooling</h3>
+        <ul><li>Docker · Compose</li><li>GitHub Actions</li><li>GHCR</li><li>Linux · AlmaLinux</li><li>Apache reverse proxy</li><li>SSH · VPS</li><li>Git · GitHub</li><li>CVAT</li><li>YouTrack</li><li>VS Code</li><li>WSL2</li></ul>
+      </div>
+      <div class="skillgroup" data-anim="up" data-delay="120">
+        <h3><span class="dot"></span>Ways of working</h3>
+        <ul><li>Cross-layer debugging</li><li>System architecture</li><li>Hardware/software integration</li><li>Production deployment</li><li>Dataset engineering</li><li>Epic → Feature → Task planning</li><li>Structured Git workflow</li></ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════ JOURNEY ══════════════ -->
+<section class="section" id="journey">
+  <div class="wrap">
+    <header class="sec-head" data-anim="up">
+      <p class="sec-kicker"><span></span>05 — Journey</p>
+      <h2 class="sec-title">Experience &amp; education</h2>
+    </header>
+
+    <div class="timeline">
+      <!-- TODO(Sakib): add your start date at magnetismtech, e.g. "2024 — Present" -->
+      <article class="tl" data-anim="up">
+        <div class="tl__when"><span class="badge badge--live">Present</span></div>
+        <div class="tl__body">
+          <h3>IoT Engineer — R&amp;D</h3>
+          <p class="tl__org">magnetismtech · Shipping &amp; logistics technology</p>
+          <p>
+            Building the intelligent layer of a live logistics platform: computer-vision gate systems,
+            industrial hardware integration and the backend services connecting them. Also responsible for
+            medical-device integration work — ECG and digital stethoscope hardware streaming into a
+            clinical EMR.
+          </p>
+          <ul class="tl__points">
+            <li>Owned the ANPR/LPR pipeline from dataset and model training through to edge deployment</li>
+            <li>Integrated industrial weighing hardware over serial into the AI capture workflow</li>
+            <li>Built and deployed Django/FastAPI services with Docker, CI/CD and Linux VPS infrastructure</li>
+            <li>~92% of contribution activity as direct commits across 30+ organisation repositories</li>
+          </ul>
+          <ul class="chips"><li>Computer Vision</li><li>Edge AI</li><li>Django</li><li>FastAPI</li><li>ESP32</li><li>Docker</li><li>Linux</li></ul>
+        </div>
+      </article>
+
+      <article class="tl" data-anim="up" data-delay="60">
+        <div class="tl__when"><b>2023</b></div>
+        <div class="tl__body">
+          <h3>Industrial Attachment</h3>
+          <p class="tl__org">Teletalk Bangladesh Ltd.</p>
+          <p>
+            Hands-on exposure to national telecom network infrastructure, software systems and operational
+            processes, working alongside experienced engineers on live problems.
+          </p>
+          <ul class="tl__points">
+            <li>Explored network infrastructure and operational workflows in a production telecom environment</li>
+            <li>Assisted with troubleshooting and fault diagnosis in a fast-paced setting</li>
+          </ul>
+          <ul class="chips"><li>Networking</li><li>Telecom infrastructure</li><li>Troubleshooting</li></ul>
+        </div>
+      </article>
+
+      <article class="tl" data-anim="up" data-delay="120">
+        <div class="tl__when"><b>2019 — 2024</b></div>
+        <div class="tl__body">
+          <h3>BSc. in Electronics &amp; Telecommunication Engineering</h3>
+          <p class="tl__org">Chittagong University of Engineering &amp; Technology (CUET) · Chattogram</p>
+          <p><b>CGPA 3.71</b> — with coursework spanning VLSI technology, MOS transistor theory, CMOS subsystem design and fabrication technology.</p>
+          <ul class="tl__points">
+            <li>Thesis: <i>A Wrench-Shaped MIMO Antenna with Enhanced Bandwidth and Isolation for Sub-6 GHz 5G Applications</i></li>
+            <li>Projects in antenna design, VLSI circuit design and embedded sensing systems</li>
+          </ul>
+          <ul class="chips"><li>VLSI</li><li>RF &amp; antennas</li><li>Cadence Virtuoso</li><li>CST Studio</li><li>MATLAB</li></ul>
+        </div>
+      </article>
+
+      <article class="tl" data-anim="up" data-delay="180">
+        <div class="tl__when"><b>2016 — 2018</b></div>
+        <div class="tl__body">
+          <h3>Higher Secondary School Certificate</h3>
+          <p class="tl__org">B.N. School &amp; College · Chattogram</p>
+          <p><b>GPA 4.75</b> — Science.</p>
+        </div>
+      </article>
+    </div>
+
+    <div class="research" data-anim="up">
+      <h3 class="research__title"><span class="dot"></span>Research interests</h3>
+      <div class="grid-3">
+        <div class="card card--soft">
+          <h4>Non-invasive glucose measurement</h4>
+          <p>Ongoing literature review of optical and spectroscopic approaches to needle-free glucose sensing — NIR photodiode front-ends, Beer–Lambert modelling and their practical limits.</p>
+        </div>
+        <div class="card card--soft">
+          <h4>Edge AI &amp; inference optimisation</h4>
+          <p>Getting detection and OCR models to real-time on constrained hardware: quantisation, ONNX/OpenVINO conversion and CPU-versus-GPU deployment trade-offs.</p>
+        </div>
+        <div class="card card--soft">
+          <h4>Agentic AI systems</h4>
+          <p>Moving from retrieval-augmented generation toward tool-using agents — with the goal of training and hosting my own models rather than only consuming APIs.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════ CONTACT ══════════════ -->
+<section class="section section--contact" id="contact">
+  <div class="wrap">
+    <div class="contact" data-anim="up">
+      <p class="sec-kicker"><span></span>06 — Contact</p>
+      <h2 class="contact__title">Let's build something<br /><em>that touches the real world.</em></h2>
+      <p class="contact__sub">
+        I'm currently engineering at <b>@magnetismtech</b> and open to interesting projects —
+        especially anything involving computer vision, embedded hardware or industrial automation.
+        The fastest way to reach me is email.
+      </p>
+
+      <a class="mailto" href="mailto:ahmedalvi5418@gmail.com">
+        <span class="mailto__label">Email</span>
+        <span class="mailto__value">ahmedalvi5418@gmail.com</span>
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+      </a>
+
+      <div class="contact__links">
+        <a class="btn btn--primary" href="mailto:ahmedalvi5418@gmail.com">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><rect x="2.5" y="4.5" width="19" height="15" rx="2.5"/><path d="m3 7 9 6 9-6"/></svg>
+          Send an email
+        </a>
+        <a class="btn btn--ghost" href="https://github.com/AHMEDALVI10" target="_blank" rel="noopener noreferrer">
+          <svg viewBox="0 0 24 24" aria-hidden="true" class="ico-fill"><path d="M12 .5a12 12 0 0 0-3.8 23.4c.6.1.8-.3.8-.6v-2c-3.3.7-4-1.6-4-1.6-.6-1.4-1.4-1.8-1.4-1.8-1.1-.7.1-.7.1-.7 1.2.1 1.9 1.3 1.9 1.3 1.1 1.9 2.9 1.3 3.6 1 .1-.8.4-1.3.8-1.6-2.7-.3-5.5-1.3-5.5-5.9 0-1.3.5-2.4 1.2-3.2-.1-.3-.5-1.5.1-3.2 0 0 1-.3 3.3 1.2a11.5 11.5 0 0 1 6 0c2.3-1.5 3.3-1.2 3.3-1.2.6 1.7.2 2.9.1 3.2.8.8 1.2 1.9 1.2 3.2 0 4.6-2.8 5.6-5.5 5.9.4.4.8 1.1.8 2.2v3.3c0 .3.2.7.8.6A12 12 0 0 0 12 .5Z"/></svg>
+          GitHub
+        </a>
+      </div>
+
+      <p class="contact__loc">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 22s7.5-6 7.5-12a7.5 7.5 0 0 0-15 0c0 6 7.5 12 7.5 12Z"/><circle cx="12" cy="10" r="2.6"/></svg>
+        Chattogram, Bangladesh · UTC+6
+      </p>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<footer class="footer">
+  <div class="wrap footer__inner">
+    <p class="footer__brand"><b>Sakib Ahmed</b> — IoT &amp; AI Systems Engineer</p>
+    <p class="footer__meta">Built from scratch · HTML, CSS &amp; vanilla JS · <span id="year">2026</span></p>
+    <a class="to-top" href="#hero" aria-label="Back to top">
+      <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 19V5M6 11l6-6 6 6"/></svg>
+    </a>
+  </div>
+</footer>
+
+<script src="assets/js/main.js" defer></script>
+</body>
+</html>
