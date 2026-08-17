@@ -33,24 +33,158 @@ body.map {
   overscroll-behavior: none;
 }
 
-/* The ambient layer from style.css is shared with page.html, but the map
-   puts a lit graph on top of it, so it's dialled back: the orbs sit
-   further out and fainter, and the grid gets a centred fade instead of
-   the page's top-anchored one (the map never scrolls, so a horizon
-   hugging the top would just look lopsided). */
+/* ── 1b. MAP BACKGROUND ─────────────────────────────────────────
+   The map needs its own sky rather than page.html's: a scrolling
+   document wants a horizon you move away from, a map that never
+   scrolls wants something centred and even.
 
-body.map .bg-grid {
-  opacity: .28;
-  mask-image: radial-gradient(ellipse 95% 90% at 50% 48%, #000 18%, transparent 76%);
-  -webkit-mask-image: radial-gradient(ellipse 95% 90% at 50% 48%, #000 18%, transparent 76%);
+   Four options live here. Switch by changing one attribute on
+   <body> in index.html — `data-bg="deep"`:
+
+     deep       layered depth field, no structure at all
+     blueprint  two-tier engineering grid, CAD-like
+     sonar      concentric range rings + a slow radar sweep
+     aurora     smooth diagonal colour wash
+
+   All four reuse the .bg-layer markup already in the page; each
+   variant hides the parts it doesn't want.
+   ──────────────────────────────────────────────────────────── */
+
+body.map .bg-layer::before,
+body.map .bg-layer::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
 }
 
-body.map .orb { opacity: .3; }
-body.map .orb-1 { top: -22vw; left: -16vw; }
-body.map .orb-2 { top: 24vh; right: -18vw; }
-body.map .orb-3 { bottom: -16vw; left: 18vw; }
+/* ---------- A · DEEP FIELD ---------- */
+/* No structure. Three broad colour fields plus an edge falloff, so the
+   graph is the only geometry on screen. */
 
-:root[data-theme="light"] body.map .orb { opacity: .2; }
+body.map[data-bg="deep"] .bg-grid,
+body.map[data-bg="deep"] .orb { display: none; }
+
+body.map[data-bg="deep"] .bg-layer::before {
+  background:
+    radial-gradient(ellipse 58% 48% at 50% 44%, color-mix(in srgb, var(--c1) 14%, transparent), transparent 70%),
+    radial-gradient(ellipse 52% 44% at 20% 24%, color-mix(in srgb, var(--c2) 15%, transparent), transparent 72%),
+    radial-gradient(ellipse 54% 46% at 80% 74%, color-mix(in srgb, var(--c3) 8%, transparent), transparent 74%);
+}
+body.map[data-bg="deep"] .bg-layer::after {
+  background: radial-gradient(ellipse 78% 74% at 50% 48%, transparent 38%, var(--bg-deep) 100%);
+}
+
+/* ---------- B · BLUEPRINT ---------- */
+/* Fine 34px cells with a bolder 170px major grid. Evenly lit, faded at
+   the very edges only. Reads as a drawing sheet. */
+
+body.map[data-bg="blueprint"] .orb { display: none; }
+
+body.map[data-bg="blueprint"] .bg-grid {
+  inset: 0;
+  opacity: 1;
+  background-image:
+    linear-gradient(color-mix(in srgb, var(--c1) 9%, transparent) 1px, transparent 1px),
+    linear-gradient(90deg, color-mix(in srgb, var(--c1) 9%, transparent) 1px, transparent 1px),
+    linear-gradient(color-mix(in srgb, var(--c1) 20%, transparent) 1px, transparent 1px),
+    linear-gradient(90deg, color-mix(in srgb, var(--c1) 20%, transparent) 1px, transparent 1px);
+  background-size: 34px 34px, 34px 34px, 170px 170px, 170px 170px;
+  background-position: center center;
+  mask-image: radial-gradient(ellipse 96% 96% at 50% 50%, #000 40%, transparent 94%);
+  -webkit-mask-image: radial-gradient(ellipse 96% 96% at 50% 50%, #000 40%, transparent 94%);
+}
+body.map[data-bg="blueprint"] .bg-layer::before {
+  background: radial-gradient(ellipse 60% 52% at 50% 46%, color-mix(in srgb, var(--c2) 11%, transparent), transparent 72%);
+}
+body.map[data-bg="blueprint"] .bg-layer::after {
+  background: radial-gradient(ellipse 82% 78% at 50% 50%, transparent 44%, var(--bg-deep) 100%);
+}
+
+/* ---------- C · SONAR ---------- */
+/* Range rings from the centre with a conic sweep rotating over them —
+   a nod to the antenna and RF half of the work. */
+
+body.map[data-bg="sonar"] .orb-2,
+body.map[data-bg="sonar"] .orb-3 { display: none; }
+
+body.map[data-bg="sonar"] .bg-grid {
+  inset: 0;
+  opacity: 1;
+  /* 1px at 15% is invisible on a near-black ground — these need real weight */
+  background-image: repeating-radial-gradient(
+    circle at 50% 50%,
+    transparent 0 84px,
+    color-mix(in srgb, var(--c1) 34%, transparent) 84px 85.5px
+  );
+  background-size: auto;          /* undo style.css's 64px tiling */
+  background-repeat: no-repeat;
+  mask-image: radial-gradient(circle at 50% 50%, #000 14%, transparent 88%);
+  -webkit-mask-image: radial-gradient(circle at 50% 50%, #000 14%, transparent 88%);
+}
+
+/* orb-1 is repurposed as the sweep: a soft conic trail, not a hard wedge.
+   The stops fade across ~110deg so there's no visible straight edge. */
+body.map[data-bg="sonar"] .orb-1 {
+  inset: -40%;
+  width: auto; height: auto;
+  top: -40%; left: -40%; right: -40%; bottom: -40%;
+  border-radius: 0;
+  filter: none;
+  opacity: .75;
+  background: conic-gradient(from -18deg,
+    transparent 0deg,
+    color-mix(in srgb, var(--c1) 18%, transparent) 26deg,
+    color-mix(in srgb, var(--c1) 10%, transparent) 58deg,
+    color-mix(in srgb, var(--c1) 4%,  transparent) 96deg,
+    transparent 134deg,
+    transparent 360deg);
+  animation: sweep 12s linear infinite;
+  mask-image: radial-gradient(circle at 50% 50%, #000 4%, transparent 54%);
+  -webkit-mask-image: radial-gradient(circle at 50% 50%, #000 4%, transparent 54%);
+}
+@keyframes sweep { to { transform: rotate(360deg); } }
+
+body.map[data-bg="sonar"] .bg-layer::after {
+  background: radial-gradient(ellipse 80% 76% at 50% 50%, transparent 40%, var(--bg-deep) 100%);
+}
+
+/* ---------- D · AURORA ---------- */
+/* Broad diagonal bands of colour, drifting slowly. Smooth fields rather
+   than discrete blobs, so nothing reads as a smudge in a corner. */
+
+body.map[data-bg="aurora"] .bg-grid,
+body.map[data-bg="aurora"] .orb { display: none; }
+
+body.map[data-bg="aurora"] .bg-layer::before {
+  inset: -25%;
+  background:
+    linear-gradient(122deg,
+      transparent 12%,
+      color-mix(in srgb, var(--c2) 22%, transparent) 30%,
+      transparent 46%),
+    linear-gradient(122deg,
+      transparent 40%,
+      color-mix(in srgb, var(--c1) 20%, transparent) 58%,
+      transparent 74%),
+    linear-gradient(122deg,
+      transparent 66%,
+      color-mix(in srgb, var(--c3) 12%, transparent) 82%,
+      transparent 96%);
+  filter: blur(48px);
+  animation: aurora 34s var(--ease-2) infinite alternate;
+}
+@keyframes aurora {
+  to { transform: translate3d(4%, -3%, 0) scale(1.08); }
+}
+
+body.map[data-bg="aurora"] .bg-layer::after {
+  background: radial-gradient(ellipse 84% 80% at 50% 50%, transparent 34%, var(--bg-deep) 100%);
+}
+
+/* the light theme wants all of this much quieter */
+:root[data-theme="light"] body.map .bg-layer::before { opacity: .55; }
+:root[data-theme="light"] body.map[data-bg="blueprint"] .bg-grid { opacity: .8; }
 
 .stage {
   position: fixed;
@@ -667,6 +801,9 @@ body.map .icon-btn {
     transform: none !important;
   }
   .hint { animation: none; }
+  /* the radar sweep and the aurora drift are both looping motion */
+  body.map[data-bg="sonar"] .orb-1,
+  body.map[data-bg="aurora"] .bg-layer::before { animation: none !important; }
   .p__link:hover, .dock__btn:hover, .bar__read:hover, .lbl { transform: none !important; }
   .lbl { transition: none; }
 }

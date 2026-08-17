@@ -94,6 +94,30 @@ Then wire it into `EDGES` — a node with no edges floats unconnected:
 Edge kinds (`spine`, `weave`, `built`, `lineage`, `when`, `time`, `reach`) only
 control colour and brightness — see `EDGE_KINDS`.
 
+### Switching the map background
+
+Four backgrounds are built and live in `map.css` § 1b. Change one attribute on
+`<body>` in `index.html`:
+
+```html
+<body class="map" data-bg="sonar">
+```
+
+| Value | Look |
+|---|---|
+| `sonar` | Concentric range rings from the centre + a slow radar sweep **(current)** |
+| `aurora` | Smooth diagonal violet → teal → mint wash, drifting |
+| `blueprint` | Fine 34px grid with a bolder 170px major grid, CAD-like |
+| `deep` | No structure — broad colour fields and an edge falloff only |
+
+All four reuse the same `.bg-layer` markup and hide the parts they don't need, and
+all four are covered by the `prefers-reduced-motion` block (the sweep and the
+aurora drift both stop).
+
+> If you write a new variant that restyles `.bg-grid`, **reset `background-size`**.
+> `style.css` sets it to `64px 64px` for the page's grid, which silently tiles any
+> larger pattern into 64px cells and makes it vanish.
+
 ### Positions are grown, not authored
 
 There are no hand-placed coordinates. `layout()` seeds nodes into per-type shells
